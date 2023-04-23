@@ -17,7 +17,7 @@ const UpdateTask =(id)=>
 {
     setTasks(
         Tasks.map((t)=>(
-            t.id==id? {...t,complete:true}:t
+            t.id===id? {...t,complete:true}:t
         ))
     )
 
@@ -26,7 +26,7 @@ const deleteTask =(id)=>
 {
     setTasks(
         Tasks.filter((t)=>(
-            t.id==id?false:true
+            t.id===id?false:true
         ))
     )
 
@@ -34,7 +34,7 @@ const deleteTask =(id)=>
 
 const addToCard =()=>
 {
-    const id= Tasks.length==0?1:Tasks.length+1;
+    const id= Tasks.length===0?1:Tasks.length+1;
     const taskDetail=
     {
         id:id,
@@ -79,7 +79,7 @@ const handleInput =()=>
         <div className='main'>
             <div className='inputSection'>
                <Header handleInput={handleInput}  />
-                {add==true ?
+                {add===true ?
                     <>
                     <CustomInput  value={singleTask}  placeHolder='Enter Task' name='Task' change={handleCustomTask}  /> 
                     <CustomInput   value={singleDes} placeHolder='Enter Description' name='Description' change={handleCustomDes}  />
